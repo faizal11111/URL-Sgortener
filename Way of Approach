@@ -1,0 +1,30 @@
+🧠 My Approach
+    I built a simple, modular, and testable URL Shortener using 🐍 Python + Flask. The application provides three core REST API endpoints:
+
+   🔗 POST /api/shorten — Accepts and shortens valid URLs
+   🚀 GET /<short_code> — Redirects to the original long URL
+   📊 GET /api/stats/<short_code> — Returns click count and creation timestamp
+
+🗂️ Design Decisions
+
+   🧠 Used in-memory storage (dict) for speed and simplicity (no external DBs)
+   🧪 Short codes are randomly generated and guaranteed to be unique
+   ✅ URL validation uses regular expressions
+   🧵 Thread safety and separation of logic are handled cleanly in a dedicated model class
+
+🧼 Separated responsibilities using:
+
+    main.py – API routes
+    models.py – storage logic
+    utils.py – helper functions
+
+🧪 Tests with Pytest
+    I wrote 5 test cases to ensure reliability and correctness:
+
+   ✅ Health check route returns service status
+   🔗 Valid URL shortening returns a short code
+   🚀 Redirection from the short code works and tracks clicks
+   ❌ Invalid URL returns 400 Bad Request
+   🚫 Unknown short codes return 404 Not Found
+
+💡 The project is structured for readability, scalability, and clean test coverage — perfect for extending with features like persistent storage, auth, or custom slugs in the future.
