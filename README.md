@@ -1,7 +1,6 @@
-# 🔗 URL Shortener API
+# 🔗 URL Shortener
 
-A compact, fast, and in-memory URL shortening service built with **Python + Flask** — inspired by the simplicity of [bit.ly](https://bit.ly) and [tinyurl.com](https://tinyurl.com).  
-Turn long URLs into clean 6-character short codes, track clicks, and retrieve analytics — all in one lightweight API!
+A compact, fast, and in-memory URL shortening service built with **Python + Flask** — inspired by the simplicity of Turn long URLs into clean 6-character short codes, track clicks, and retrieve analytics — all in one lightweight URL!
 
 ---
 
