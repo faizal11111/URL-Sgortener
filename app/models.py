@@ -3,12 +3,7 @@
 # - Storing URL mappings
 # - Tracking click counts
 # - Managing URL metadata
-
-
-# models.py
-
 from datetime import datetime
-
 class URLMapping:
     def __init__(self):
         self.url_map = {}
