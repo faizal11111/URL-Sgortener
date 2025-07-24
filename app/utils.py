@@ -3,9 +3,6 @@
 # - Generating short codes
 # - Validating URLs
 # - Any other helper functions you need
-
-
-
 import random
 import string
 import re
