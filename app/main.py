@@ -4,25 +4,20 @@ from flask import Flask, jsonify, request, redirect
 from .models import URLMapping
 from .utils import generate_short_code, is_valid_url
 from datetime import datetime
-
 app = Flask(__name__)
 url_mapping = URLMapping()
-
 # Health Check Endpoint
 @app.route('/', methods=['GET'])
 def health_check():
     return jsonify({"status": "healthy", "service": "URL Shortener API"}), 200
-
+    
 # Shorten a URL
 @app.route('/api/shorten', methods=['POST'])
 def shorten_url():
     data = request.get_json()
-
     if not data or 'url' not in data:
-        return jsonify({"error": "Missing URL in request"}), 400
-
+        return jsonify({"error": "Missing URL in request"}), 40
     original_url = data['url']
-    
     if not is_valid_url(original_url):
         return jsonify({"error": "Invalid URL"}), 400
 
@@ -30,9 +25,7 @@ def shorten_url():
     short_code = generate_short_code()
     while url_mapping.get_original_url(short_code) is not None:
         short_code = generate_short_code()
-
     url_mapping.add_url(short_code, original_url)
-
     return jsonify({
         "short_code": short_code,
         "short_url": f"http://localhost:5000/{short_code}"
